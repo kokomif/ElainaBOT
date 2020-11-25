@@ -1001,13 +1001,10 @@ ${desc}`)
                             }
                         }else{
                             axios.get('https://animechanapi.xyz/api/quotes/random').then(({ data }) => {
-                                let penyanyi = data.result[0].penyanyi 
-                                let judul = data.result[0].judul
-                                let linkimg = data.result[0].linkImg
-                                let lagu = data.result[0].linkMp3 
-                                let size = data.result[0].filesize
-                                let durasi = data.result[0].duration
-                                tobz.sendText(from, `"${quote}"\n\nCharacter : ${char}\nAnime : ${anime}`)                               
+                                let quote = data.data[0].quote
+                                let character = data.data[0].character
+                                let anime = data.data[0].anime
+                                tobz.sendText(from, `"${quote}"\n\nCharacter : ${character}\nAnime : ${anime}`)                            
                             }).catch(err => {
                                 console.log(err)
                             })
